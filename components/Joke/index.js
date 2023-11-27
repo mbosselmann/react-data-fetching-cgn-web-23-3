@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-const fetcher = (...args) => fetch(...args).then((response) => response.json());
-
 export default function Joke() {
   const [id, setId] = useState(0);
   /*
@@ -24,8 +22,7 @@ export default function Joke() {
   */
 
   const { data: joke } = useSWR(
-    `https://example-apis.vercel.app/api/bad-jokes/${id}`,
-    fetcher
+    `https://example-apis.vercel.app/api/bad-jokes/${id}`
   );
 
   function handlePrevJoke() {
